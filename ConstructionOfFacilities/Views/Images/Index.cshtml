@@ -1,0 +1,86 @@
+@{
+    ViewData["Title"] = "Изображения";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dic = (Dictionary<string, List<string>>)@ViewBag.Dictionary;
+}
+
+<h2>Изображения</h2>
+<br>
+<form asp-controller="Images" asp-action="AddNewAddress" method="post" enctype="multipart/form-data" >
+    <dl >
+        <dt>
+            Новый адрес
+        </dt>
+        <dd>
+            <input type="text" name="newDirectory" value="" style="float: left; height: 30px"/>
+            <input type="file" name="files" class="form-control" multiple="" style="float: left; height: 30px"/>
+            <input type="submit" value="Добавить" class="btn btn-default" style="float: left; height: 30px"/>
+        </dd>
+    </dl>
+</form>
+<br>
+<hr>
+<div>
+    <table class="table" style="width: 100%">
+        <thead>
+        <tr>
+            <th style="width: 20%">
+                <label>Адрес объекта</label>
+
+            </th>
+            <th style="width: 70%">
+                <label>Изображения</label>
+            </th>
+            <th style="width: 10%">
+                <label>Загрузка</label>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+         @foreach (var model in dic)
+         {
+             <tr>
+                 <td>
+                     @{
+                         var str = model.Key;
+                     }
+                     <label>@str</label>
+                     <a class="btn btn-sm btn-danger" asp-action="DeleteObject" asp-route-folderName="@str">Удалить</a>
+                 </td>
+                 <td style="max-height: 200px">
+                 
+                     @foreach (var srcimg in model.Value)
+                     {
+                         <form class="navbar-form navbar-left" asp-controller="Images" asp-action="RemoveImageFromObject" method="post" enctype="multipart/form-data">
+                             <input type="hidden" name="src" value="@srcimg"/>
+                             <div class="form-group">
+                                 <button type="submit" style="float: left; position: absolute; background: whitesmoke; border: none;">
+                                     <span class="glyphicon glyphicon-remove"></span>
+                                 </button>
+                                 <a class="fancybox" href="@srcimg" target="_blank">
+                                     <img src="@srcimg" class="objectImages"/>
+                                 </a>
+                             </div>
+                         </form>
+                     }
+                 </td>
+                 <td>
+                     <form asp-controller="Images" asp-action="AddImageToObject" method="post" enctype="multipart/form-data" >
+                         <div>
+                             <input type="hidden" name="directory" value="@str" />
+                             <div class="form-group">
+                                 <input type="file" name="files" class="form-control" multiple=""/>
+                             </div>
+                             <div class="form-group">
+                                 <input type="submit" value="Загрузить" class="btn btn-default"/>
+                             </div>
+                         </div>
+                     </form>
+                 </td>
+             </tr>
+
+         }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,234 @@
+@using ConstructionOfFacilities.Views
+@model BuildingObject
+
+@{
+    ViewData["Title"] = "Детали";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    <script src="https://api-maps.yandex.ru/2.1/?load=package.standard&lang=ru-RU" type="text/javascript"> </script>
+    <script id="YandexMapScript" src="~/js/YandexMap.js" data-src="@ViewBag.Address" type="text/javascript"></script>
+}
+
+<h2>Детали</h2>
+<hr />
+<div>   
+    <table style="width: 100%; height: 100%;" >
+        <tr>
+            <td style="width: 50%">
+                <dl >
+                    <dt>
+                        
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd>
+                        @{
+                            var str = ConvertFunctions.StringToNullMessageConvertion(Model.Name);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.Address);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Responsible)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.Responsible);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Amount)
+                    </dt>
+                    <dd>
+                        @{
+                            var number = ConvertFunctions.DecimalToStringConvertion(Model.Amount);
+                            str = ConvertFunctions.StringToNullMessageConvertion(number);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PriceOfContract)
+                    </dt>
+                    <dd>
+                        @{
+                            number = ConvertFunctions.DecimalToStringConvertion(Model.PriceOfContract);
+                            str = ConvertFunctions.StringToNullMessageConvertion(number);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Executor)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.Executor);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PublishDate)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.PublishDate);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.EndDate);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BidsDate)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.BidsDate);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AuctionDate)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.AuctionDate);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Bids)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.Bids);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Partner)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.Partner);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AmountOfContract)
+                    </dt>
+                    <dd>
+                        @{
+                            number = ConvertFunctions.DecimalToStringConvertion(Model.AmountOfContract);
+                            str = ConvertFunctions.StringToNullMessageConvertion(number);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DateOfContract)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.DateOfContract);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Stage)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.Stage);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StageOfContract)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.StageOfContract);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SourceOfFinancing)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.SourceOfFinancing);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Comments)
+                    </dt>
+                    <dd>
+                        @{
+                            str = ConvertFunctions.StringToNullMessageConvertion(Model.Comments);
+                        }
+                        @Html.DisplayFor(model => str)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LastUpDateTime)
+                    </dt>
+                    <dd>
+                        @Html.DisplayTextFor(model => model.LastUpDateTime)
+                    </dd>
+                </dl>
+            </td>
+            <td style="width: 50%; height: 100%; max-height: 700px;">
+                <div style="top: 0; left: 0; right: 0; bottom: 0; padding-bottom: 10px; overflow-y: auto; max-height: 700px;">
+                @{
+                    var flag = false;
+                }
+                @foreach (var srcimg in (List<string>)ViewBag.Images)
+                {
+                    flag = true;
+                    <form class="navbar-form navbar-left">
+                        @{
+                            var formSrc = srcimg.Replace("\\\\", "/");
+                            formSrc = formSrc.Replace("\\", "/");
+                            var mas = formSrc.Split('/');
+                            var name = mas[mas.Length - 2];
+                        }
+                        <a href="~/@srcimg" target="_blank" title="@name"  >
+                            <img src="~/@srcimg" class="objectImages" title="@name" alt="@name"/>
+                        </a>
+                    </form>
+                    }
+                    @{
+                        if (!flag)
+                        {
+                            <h3 align="center">
+                                Изображений нет
+                            </h3>
+                        }
+                    }
+                </div>
+                </td>
+        </tr>
+    </table>
+</div> 
+
+<div id="map" style="width: 100%; height: 300px"></div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> |
+    <a asp-action="Index">Назад к списку</a>
+</div>

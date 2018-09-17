@@ -1,0 +1,43 @@
+﻿.DivTable {
+    overflow: auto;
+    max-height: 70%;
+    width: 500px;
+}
+
+.DivTable  thead tr th {
+    padding: 5px;
+    text-align: center;
+    border-bottom: gray 1px solid;
+}
+
+.DivTable  tbody tr td {
+    padding: 5px;
+    border-bottom: lavender 1px solid;
+}
+
+.middleParameters {
+    text-align: center;
+}
+
+.DivTable {
+    table-layout: auto;
+}
+
+#MainDivContent {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 0;
+    padding-bottom: 0;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    overflow: auto;
+}
+
+.objectImages {
+    height: 150px;
+    margin: 5px;
+    overflow-y: scroll;
+}

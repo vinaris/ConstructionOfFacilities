@@ -1,0 +1,51 @@
+
+@{
+    ViewData["Title"] = "Загрузка данных из Excel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Загрузка данных из Excel</h2>
+
+@using (Html.BeginForm("DownloadExcel", "BuildingObjects", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()    
+    @Html.ValidationSummary()
+     
+    <div class="form-group">
+        <input type="hidden" name="tableId" value="@ViewBag.SelectedTable"/>
+        <input type="file" id="dataFile" name="upload"/>
+    </div>
+     
+    <div class="form-group">
+        <input type="submit" value="Загрузить" class="btn btn-default" />
+    </div>
+     
+    <h3 align="center">Формат данных Excel-документа</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th colspan="16"><h4 align="center">Название документа</h4></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>№</td>
+                <td>Предмет</td>
+                <td>Ответственный</td>
+                <td>Адрес</td>
+                <td>Сумма</td>
+                <td>Цена контракта</td>
+                <td>Номер закупки</td>
+                <td>Дата размещения</td>
+                <td>Дата окончания подачи заявок</td>
+                <td>Дата проведения аукциона</td>
+                <td>Контрагент</td>
+                <td>Сумма контракта</td>
+                <td>Дата контракта</td>
+                <td>Этап закупки</td>
+                <td>Этап исполнения контракта</td>
+                <td>Источник финансирования</td>
+            </tr>
+        </tbody>
+     </table>
+}

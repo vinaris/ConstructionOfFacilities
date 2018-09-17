@@ -1,0 +1,182 @@
+﻿@model ConstructionOfFacilities.Models.BuildingObject
+
+@{
+    ViewData["Title"] = "Редактирование";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Редактирование</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        @*<h4>BuildingObject</h4>*@
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="TypeOfTable" />
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Name" class="form-control" data="elastic" style="overflow-y: auto; min-height: 80px"></textarea>
+                @*<input asp-for="Name" class="form-control"/>*@
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Address" class="form-control" data="elastic" style="overflow-y: auto; min-height: 80px"></textarea>
+                @*<input asp-for="Address" class="form-control"/>*@
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Responsible" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Responsible" class="form-control" />
+                <span asp-validation-for="Responsible" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Amount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PriceOfContract" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PriceOfContract" class="form-control" />
+                <span asp-validation-for="PriceOfContract" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Executor" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Executor" class="form-control" />
+                <span asp-validation-for="Executor" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PublishDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PublishDate" type="date" class="form-control" />
+                <span asp-validation-for="PublishDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EndDate" type="date" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BidsDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BidsDate" type="date" class="form-control" />
+                <span asp-validation-for="BidsDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AuctionDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AuctionDate" type="date" class="form-control" />
+                <span asp-validation-for="AuctionDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Bids" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Bids" class="form-control" data="elastic" style="overflow-y: auto; min-height: 80px"></textarea>
+                @*<input asp-for="Bids" class="form-control"/>*@
+                <span asp-validation-for="Bids" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Partner" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Partner" class="form-control" />
+                <span asp-validation-for="Partner" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AmountOfContract" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AmountOfContract" class="form-control" />
+                <span asp-validation-for="AmountOfContract" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DateOfContract" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DateOfContract" type="date" class="form-control" />
+                <span asp-validation-for="DateOfContract" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Stage" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Stage" class="form-control" />
+                <span asp-validation-for="Stage" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="StageOfContract" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="StageOfContract" class="form-control">
+                    <option></option>
+                    @{
+                        decimal percent = 0;
+                        decimal step = 10;
+                        decimal countIter = 100 / step;
+                        for (int i = 0; i < countIter; i++)
+                        {
+                            percent += step;
+                            var str = percent + "%";
+                            <option>@str</option>
+                            
+                        }
+                    }
+                </select>
+                
+                
+                
+                @*<input asp-for="StageOfContract" class="form-control"/>*@
+                <span asp-validation-for="StageOfContract" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SourceOfFinancing" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="SourceOfFinancing" class="form-control" data="elastic" style="overflow-y: auto; min-height: 80px"></textarea>
+                @*<input asp-for="SourceOfFinancing" class="form-control"/>*@
+                <span asp-validation-for="SourceOfFinancing" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Comments" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Comments" class="form-control" data="elastic" style="overflow-y: auto; min-height: 80px"></textarea>
+                @*<input asp-for="Comments" class="form-control"/>*@
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Назад к списку</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
