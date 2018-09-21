@@ -1,16 +1,16 @@
 ﻿.DivTable {
-    overflow: auto;
+    border: black 1px solid;
     max-height: 70%;
-    width: 500px;
+    width: 100%;
 }
 
-.DivTable  thead tr th {
+.DivTable thead tr th {
     padding: 5px;
     text-align: center;
     border-bottom: gray 1px solid;
 }
 
-.DivTable  tbody tr td {
+.DivTable tbody tr td {
     padding: 5px;
     border-bottom: lavender 1px solid;
 }
@@ -24,11 +24,8 @@
 }
 
 #MainDivContent {
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 0;
-    padding-bottom: 0;
-    top: 50px;
+    padding: 5% 0;
+    top: 500px;
     left: 0;
     right: 0;
     bottom: 0;

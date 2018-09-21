@@ -29,7 +29,7 @@
 
 
 <hr/>
-
+<div>
 <table style="margin: 0; padding: 0; width: 100%">
     <tr>
         <td style="width: 40%">
@@ -73,145 +73,149 @@
             </form>
         </td>
     </tr>
+
 </table>
-    <table class="DivTable">
-        <thead>
+</div>
+<div class="DivTable">
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th class="col-md-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Responsible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Executor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuctionDate)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Bids)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Partner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountOfContract)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfContract)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StageOfContract)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        decimal? sum = 0;
+        decimal? sumOfContracts = 0;
+    }
+    @foreach (var item in Model)
+    {
         <tr>
-            <th></th>
-            <th class="col-md-3">
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Responsible)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Executor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuctionDate)
-            </th>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Bids)
-            </th>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Partner)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmountOfContract)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfContract)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StageOfContract)
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        @{
-            decimal? sum = 0;
-            decimal? sumOfContracts = 0;
-        }
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> <br>
-                    <a asp-action="Details" asp-route-id="@item.Id">Подробности</a> <br>
-                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a> <br>
-                </td>
-                <td>
-                    <a asp-action="ObjectDetails" asp-route-id="@item.Name" asp-route-tableId="@ViewBag.SelectedTable" style="color: #000 !important; text-decoration: none">@Html.DisplayFor(modelItem => item.Name)</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    <a asp-action="ObjectDetails" asp-route-id="@item.Responsible" asp-route-tableId="@ViewBag.SelectedTable" style="color: #000 !important; text-decoration: none"> @Html.DisplayFor(modelItem => item.Responsible)</a>
-                </td>
-                <td class="middleParameters">
-                    @{
-                        sum += item.Amount;
-                        var number = ConvertFunctions.DecimalToStringConvertion(item.Amount);
-                    }
-                    @Html.DisplayFor(modelItem => number)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Executor)
-                </td>
-                <td class="middleParameters">
-                    @{
-                        var date = ConvertFunctions.DateToStringConvertion(item.AuctionDate);
-                    }
-                    @Html.DisplayFor(modelItem => date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Bids)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Partner)
-                </td>
-                <td class="middleParameters">
-                    @{
-                        sumOfContracts += item.AmountOfContract;
-                        number = ConvertFunctions.DecimalToStringConvertion(item.AmountOfContract);
-                    }
-                    @Html.DisplayFor(modelItem => number)
-                </td>
-                <td class="middleParameters">
-                    @{
-                        date = ConvertFunctions.DateToStringConvertion(item.DateOfContract);
-                    }
-                    @Html.DisplayFor(modelItem => date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stage)
-                </td>
-                <td class="middleParameters">
-                    @Html.DisplayFor(modelItem => item.StageOfContract)
-                </td>
-            </tr>
-        }
-        </tbody>
-        <tfoot>
-        <tr>
-            <td style="text-align: right; font-weight: bold; padding: 5px;">Итоги:</td>
-            <td>@Model.Count() объект(а/ов)</td>
-            <td colspan="2" style="text-align: right; font-weight: bold; padding: 5px;">
-                Сумма:
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> <br>
+                <a asp-action="Details" asp-route-id="@item.Id">Подробности</a> <br>
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a> <br>
             </td>
             <td>
-                @{
-                    var str = ConvertFunctions.DecimalToStringConvertion(sum);
-                }
-                @str
-            </td>
-            <td colspan="2" style="text-align: right; font-weight: bold; padding: 5px;">
-                Сумма контрактов:
+                <a asp-action="ObjectDetails" asp-route-id="@item.Name" asp-route-tableId="@ViewBag.SelectedTable" style="color: #000 !important; text-decoration: none">@Html.DisplayFor(modelItem => item.Name)</a>
             </td>
             <td>
-                @{
-                    str = ConvertFunctions.DecimalToStringConvertion(sumOfContracts);
-                }
-                @str
+                @Html.DisplayFor(modelItem => item.Address)
             </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+                <a asp-action="ObjectDetails" asp-route-id="@item.Responsible" asp-route-tableId="@ViewBag.SelectedTable" style="color: #000 !important; text-decoration: none"> @Html.DisplayFor(modelItem => item.Responsible)</a>
+            </td>
+            <td class="middleParameters">
+                @{
+                    sum += item.Amount;
+                    var number = ConvertFunctions.DecimalToStringConvertion(item.Amount);
+                }
+                @Html.DisplayFor(modelItem => number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Executor)
+            </td>
+            <td class="middleParameters">
+                @{
+                    var date = ConvertFunctions.DateToStringConvertion(item.AuctionDate);
+                }
+                @Html.DisplayFor(modelItem => date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Partner)
+            </td>
+            <td class="middleParameters">
+                @{
+                    sumOfContracts += item.AmountOfContract;
+                    number = ConvertFunctions.DecimalToStringConvertion(item.AmountOfContract);
+                }
+                @Html.DisplayFor(modelItem => number)
+            </td>
+            <td class="middleParameters">
+                @{
+                    date = ConvertFunctions.DateToStringConvertion(item.DateOfContract);
+                }
+                @Html.DisplayFor(modelItem => date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stage)
+            </td>
+            <td class="middleParameters">
+                @Html.DisplayFor(modelItem => item.StageOfContract)
+            </td>
         </tr>
-        </tfoot>
-    </table>
+    }
+    </tbody>
+    <tfoot>
+    <tr>
+        <td style="text-align: right; font-weight: bold; padding: 5px;">Итоги:</td>
+        <td>@Model.Count() объект(а/ов)</td>
+        <td colspan="2" style="text-align: right; font-weight: bold; padding: 5px;">
+            Сумма:
+        </td>
+        <td>
+            @{
+                var str = ConvertFunctions.DecimalToStringConvertion(sum);
+            }
+            @str
+        </td>
+        <td colspan="2" style="text-align: right; font-weight: bold; padding: 5px;">
+            Сумма контрактов:
+        </td>
+        <td>
+            @{
+                str = ConvertFunctions.DecimalToStringConvertion(sumOfContracts);
+            }
+            @str
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tfoot>
+</table>
+</div>

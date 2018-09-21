@@ -26,7 +26,7 @@ namespace ConstructionOfFacilities.Controllers
         {
            var user = await _userManager.FindByIdAsync(id);
            var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
-           var result = _userManager.ResetPasswordAsync(user, resetToken, "!123456Qwe");
+           var result = _userManager.ResetPasswordAsync(user, resetToken, "!123Qwe");
             if (result.Result.Succeeded)
             {
                 await _userManager.UpdateAsync(user);
@@ -58,7 +58,7 @@ namespace ConstructionOfFacilities.Controllers
                     {
                         foreach (var item in rolesForUser.ToList())
                         {
-                            var result = await _userManager.RemoveFromRoleAsync(user, item);
+                            await _userManager.RemoveFromRoleAsync(user, item);
                         }
                     }
                     await _userManager.DeleteAsync(user);
