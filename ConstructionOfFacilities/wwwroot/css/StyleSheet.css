@@ -16,25 +16,6 @@ td {
     border-bottom: lavender 1px solid;
 }
 
-/*.DivTable {
-    max-height: 70%;
-    width: 100%;
-}
-
-.DivTable table thead tr th {
-    padding: 5px;
-    text-align: center;
-    border-bottom: gray 1px solid;
-}
-.DivTable table tbody tr td {
-    padding: 5px;
-    border-bottom: lavender 1px solid;
-    border: red 1px solid;
-}
-
-.DivTable {
-    table-layout: auto;
-}*/
 .middleParameters {
     text-align: center;
 }
