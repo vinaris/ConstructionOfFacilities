@@ -16,48 +16,49 @@
 <hr />
 <br>
 <div id="map" style="width: 100%; height: 300px"></div>
-<table class="DivTable" >
-        <thead>
-        <tr>
-            <th></th>
-            <th class="col-md-3">
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Responsible)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Executor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuctionDate)
-            </th>
-            <th class="col-md-3">
-                @Html.DisplayNameFor(model => model.Bids)
-            </th>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Partner)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmountOfContract)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfContract)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StageOfContract)
-            </th>
-        </tr>
-        </thead>
+<div class="DivTable">
+<table >
+    <thead>
+    <tr>
+        <th></th>
+        <th class="col-md-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Responsible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Executor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuctionDate)
+        </th>
+        <th class="col-md-3">
+            @Html.DisplayNameFor(model => model.Bids)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Partner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountOfContract)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfContract)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StageOfContract)
+        </th>
+    </tr>
+    </thead>
     <tbody>
     @foreach (var item in Model)
     {
@@ -68,7 +69,7 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a> <br>
             </td>
             <td>
-               @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
@@ -119,6 +120,7 @@
     }
     </tbody>
 </table>
+</div>
 
 <div>
     <a asp-action="Index">Назад к списку</a>

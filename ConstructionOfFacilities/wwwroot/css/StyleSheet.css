@@ -1,31 +1,47 @@
 ﻿.DivTable {
-    border: black 1px solid;
     max-height: 70%;
     width: 100%;
+    table-layout: auto;
+    overflow: auto;
 }
 
-.DivTable thead tr th {
+th {
     padding: 5px;
     text-align: center;
     border-bottom: gray 1px solid;
 }
 
-.DivTable tbody tr td {
+td {
     padding: 5px;
     border-bottom: lavender 1px solid;
 }
 
-.middleParameters {
+/*.DivTable {
+    max-height: 70%;
+    width: 100%;
+}
+
+.DivTable table thead tr th {
+    padding: 5px;
     text-align: center;
+    border-bottom: gray 1px solid;
+}
+.DivTable table tbody tr td {
+    padding: 5px;
+    border-bottom: lavender 1px solid;
+    border: red 1px solid;
 }
 
 .DivTable {
     table-layout: auto;
+}*/
+.middleParameters {
+    text-align: center;
 }
 
 #MainDivContent {
-    padding: 5% 0;
-    top: 500px;
+    padding: 3% 5%;
+    top: 20px;
     left: 0;
     right: 0;
     bottom: 0;

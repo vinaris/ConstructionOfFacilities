@@ -30,54 +30,53 @@
 
 <hr/>
 <div>
-<table style="margin: 0; padding: 0; width: 100%">
-    <tr>
-        <td style="width: 40%">
-            <div class="btn-group">
-                <a asp-action="Create" asp-route-tableId="@ViewBag.SelectedTable" class="btn btn-default">Добавить запись</a>
-                <a asp-action="UploadData" asp-route-tableId="@ViewBag.SelectedTable" value="" class="btn btn-default">Загрузка данных из Excel</a>
-            </div>
-        </td>
-        <td style="width: 60%">
-            <form class="navbar-form navbar-left" method="post" asp-controller="BuildingObjects" asp-action="Index" asp-route-tableId="@ViewBag.SelectedTable">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="searchString" placeholder="Поиск">
+    <table style="margin: 0; padding: 0; width: 100%">
+        <tr>
+            <td style="width: 40%">
+                <div class="btn-group">
+                    <a asp-action="Create" asp-route-tableId="@ViewBag.SelectedTable" class="btn btn-default">Добавить запись</a>
+                    <a asp-action="UploadData" asp-route-tableId="@ViewBag.SelectedTable" value="" class="btn btn-default">Загрузка данных из Excel</a>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                </div>
-                <div class="form-group">
-                    <input id="subject" type="checkbox" class="form-control" name="subject" value="true" checked="checked">
-                    <label for="subject">Предмет</label>
-                </div>
-                <div class="form-group">
-                    <input id="address" type="checkbox" class="form-control" name="address" value="true">
-                    <label for="address">Адрес</label>
-                </div>
-                <div class="form-group">
-                    <input id="responsible" type="checkbox" class="form-control" name="responsible" value="true">
-                    <label for="responsible">Ответственный</label>
-                </div>
-                <div class="form-group">
-                    <input id="executor" type="checkbox" class="form-control" name="executor" value="true">
-                    <label for="executor">Исполнитель</label>
-                </div>
-                <div class="form-group">
-                    <input id="partner" type="checkbox" class="form-control" name="partner" value="true">
-                    <label for="partner">Контрагент</label>
-                </div>
-                <div class="form-group">
-                    <input id="comments" type="checkbox" class="form-control" name="comments" value="true">
-                    <label for="comments">Комментарии</label>
-                </div>
-            </form>
-        </td>
-    </tr>
-
-</table>
+            </td>
+            <td style="width: 60%">
+                <form class="navbar-form navbar-left" method="post" asp-controller="BuildingObjects" asp-action="Index" asp-route-tableId="@ViewBag.SelectedTable">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="searchString" placeholder="Поиск">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </div>
+                    <div class="form-group">
+                        <input id="subject" type="checkbox" class="form-control" name="subject" value="true" checked="checked">
+                        <label for="subject">Предмет</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="address" type="checkbox" class="form-control" name="address" value="true">
+                        <label for="address">Адрес</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="responsible" type="checkbox" class="form-control" name="responsible" value="true">
+                        <label for="responsible">Ответственный</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="executor" type="checkbox" class="form-control" name="executor" value="true">
+                        <label for="executor">Исполнитель</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="partner" type="checkbox" class="form-control" name="partner" value="true">
+                        <label for="partner">Контрагент</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="comments" type="checkbox" class="form-control" name="comments" value="true">
+                        <label for="comments">Комментарии</label>
+                    </div>
+                </form>
+            </td>
+        </tr>
+    </table>
 </div>
 <div class="DivTable">
-<table>
+<table >
     <thead>
     <tr>
         <th></th>
@@ -185,7 +184,7 @@
         </tr>
     }
     </tbody>
-    <tfoot>
+    @*<tfoot>
     <tr>
         <td style="text-align: right; font-weight: bold; padding: 5px;">Итоги:</td>
         <td>@Model.Count() объект(а/ов)</td>
@@ -214,8 +213,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
     </tr>
-    </tfoot>
+    </tfoot>*@
 </table>
 </div>
